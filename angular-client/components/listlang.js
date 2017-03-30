@@ -12,6 +12,7 @@ angular.module('app')
   this.currentLang = 'Spanish';
   
   isolineatorService.getLang((data) => {
+    console.log('in getlang', data.data)
     this.lang = data.data;
   });
 

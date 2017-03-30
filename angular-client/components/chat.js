@@ -4,6 +4,19 @@ angular.module('app')
   this.englishText = '';
   this.foreignText = '';
   this.messages = [];
+  this.chatting = true;
+
+
+
+  //waiting for the audio
+  socket.on('transcription', (data, trans) => {
+      this.foreignText = trans;
+      this.englishText = data;
+      console.log('here we go')
+      // this.foreignText = data;
+      // this.translate = trans;
+  });
+
 
   this.sendEnglishText = (text) => {
       socket.emit('message', text);

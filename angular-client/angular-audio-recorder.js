@@ -605,6 +605,7 @@ angular.module('angularAudioRecorder.directives')
       return {
         restrict: 'EA',
         scope: {
+          chatting: '<',
           audioModel: '=',
           id: '@',
           onRecordStart: '&',
