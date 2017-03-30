@@ -288,6 +288,8 @@ var RecorderController = function (element, service, service1, recorderUtils, $s
   };
 
   control.stopRecord = function (lang) {
+
+    lang = this.translateTo ? this.translateTo : lang;
     var id = control.id;
     if (!service.isAvailable() || !status.isRecording) {
       return false;
@@ -606,6 +608,7 @@ angular.module('angularAudioRecorder.directives')
         restrict: 'EA',
         scope: {
           chatting: '<',
+          translateTo: '<',
           audioModel: '=',
           id: '@',
           onRecordStart: '&',

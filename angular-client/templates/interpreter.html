@@ -1,5 +1,6 @@
 <div>  
-  <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit" chatting="ctrl.chatting">
+  <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit" chatting="ctrl.chatting" translate-to="ctrl.translateTo">
+        <div>{{recorder.translateTo}}</div>
         <div ng-if="recorder.isAvailable">
 
             <div ng-if="recorder.status.isDenied === true" style="color: red;">
@@ -23,7 +24,7 @@
                 <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
             </button>
 
-            <listlang></listlang>
+            <listlang chatting='recorder.chatting'></listlang>
 
             <button ng-if="recorder.status.isRecording" class="btn btn-default">{{recorder.elapsedTime > 9 ? recorder.elapsedTime : ('0'+recorder.elapsedTime)}}</button>
             <div class="outerrecorder">
@@ -48,6 +49,8 @@
                   </ul>
                        
                 </div>
+
+
                 <div ng-show="recorder.isHtml5 && recorder.status.isRecording" class="recorder">
                     <ng-audio-recorder-analyzer></ng-audio-recorder-analyzer>
                 </div>
@@ -79,6 +82,7 @@
     Translation: </strong>
 
     {{ctrl.translate}} 
+
     
     </div>
 </div>

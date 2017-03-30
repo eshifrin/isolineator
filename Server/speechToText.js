@@ -27,7 +27,7 @@ if (process.env.GOOGLE_PRIVATE_KEY_ID) {
 var options = {
   encoding: 'LINEAR16',
   sampleRate: 44100,
-  languageCode: 'en'
+  languageCode: 'ru'
 };
 
 const request = {
@@ -49,7 +49,8 @@ exports.createAndStream = (file, callback) => {
 
 //Update language of recording
 exports.updateLanguage = (req, res) => {
-  options.languageCode = req.body.langCode;
+  console.log('getting code', req.body.languageCode)
+  options.languageCode = req.body.languageCode;
   res.end();
 }
 

@@ -152,6 +152,18 @@ angular.module('app')
         headers: {'Content-type': 'application/json'}
      })
   }
+
+  this.changeAudioLanguage = (languageCode) => {
+     $http({
+        method: 'POST',
+        url: '/inputLang', 
+        data: {
+          languageCode: languageCode 
+        },
+        headers: {'Content-type': 'application/json'}
+     })
+    .catch(err => console.log('error changing language'))
+  }
   
   // SERVICE USED TO INVOKE LIVE STREAMING FUNCTION IN SERVER
 

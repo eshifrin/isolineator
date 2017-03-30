@@ -1,5 +1,6 @@
 angular.module('app')
 .controller('InterCtrl', function($scope) {
+  console.log('interpreter scope')
   console.log($scope.ctrl);
     })
 .directive('interpreter', function() {
@@ -7,7 +8,8 @@ angular.module('app')
     scope: {
       chatting: '<',
       text: '<',
-      translate: '<'
+      translate: '<',
+      translateTo: '<'
     },
     controller: 'InterCtrl',
     controllerAs: 'ctrl',

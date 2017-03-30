@@ -7,12 +7,18 @@ angular.module('app')
   this.translateTo = 'en';
   this.messages = [];
   this.chatting = true;
+<<<<<<< HEAD
 
+=======
+  //chatting is a boolean passed to the interpreter directive & html
+  //so we can hide features we don't want
+>>>>>>> integrated audio
 
   isolineatorService.getChatLang((data) => {
     this.languages = data.data;
   });
 
+<<<<<<< HEAD
   this.sendMessage = () => {
     if (this.foreignText) {
       var message = { 
@@ -25,6 +31,8 @@ angular.module('app')
     }
   }
 
+=======
+>>>>>>> integrated audio
   //waiting for the audio
   socket.on('transcription', (data, trans) => {
       this.foreignText = trans;
