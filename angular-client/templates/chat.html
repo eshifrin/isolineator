@@ -15,4 +15,10 @@
          ng-click="ctrl.sendMessage()" 
          value='Send' />
 </form>
+<div class="bodycontainer">
+  <!-- ctrl.chatting is boolean passed from chat directive
+  that has been added to elements we want to hide -->
+  <interpreter chatting="ctrl.chatting">Interpreter goes here
+  </interpreter>
+</div>
 

@@ -6,6 +6,9 @@ angular.module('app')
   this.username = '';
   this.translateTo = 'en';
   this.messages = [];
+  this.chatting = true;
+
+
   isolineatorService.getChatLang((data) => {
     this.languages = data.data;
   });
@@ -20,7 +23,13 @@ angular.module('app')
       socket.emit('message', message);
       this.foreignText = '';
     }
-  };
+  }
+
+  //waiting for the audio
+  socket.on('transcription', (data, trans) => {
+      this.foreignText = trans;
+      this.englishText = data;
+  });
 
   this.changeLanguage = () => {
     socket.emit('changeLanguage', this.translateTo);

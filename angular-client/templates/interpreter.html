@@ -1,5 +1,5 @@
 <div>  
-  <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit">
+  <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit" chatting="ctrl.chatting">
         <div ng-if="recorder.isAvailable">
 
             <div ng-if="recorder.status.isDenied === true" style="color: red;">
@@ -19,7 +19,7 @@
                 <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
             </button>
 
-            <button ng-click="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel" class="btn btn-default">
+            <button ng-hide="recorder.chatting" ng-click="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel" class="btn btn-default">
                 <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
             </button>
 
@@ -34,12 +34,12 @@
             </h2> -->
             <!-- </div> -->
 
-            <div style="max-width: 600px" class="center">
+            <div  style="max-width: 600px" class="center">
                 <div ng-show="recorder.status.isConverting">
                     Please wait while your recording is processed.
                 </div>
                 <div ng-show="(!recorder.isHtml5 || !recorder.status.isRecording) && (recorder.status.isRecording || !recorder.audioModel)" class="emptybox">
-                  <ul>
+                  <ul ng-hide="recorder.chatting">
                       <li><span class="center">Click on the <span class="glyphicon glyphicon-record" aria-hidden="true"></span> and start talking.</li>
                       <li>After you are done, click <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>.</li>
                       <li>Explore and learn new spanish words. Play back your voice using <span class="glyphicon glyphicon-play" aria-hidden="true"></span>.</li>
@@ -53,7 +53,7 @@
                 </div>
                 <br/>
                 
-                <div ng-show="!recorder.status.isRecording && recorder.audioModel" class="wave">
+                <div  ng-show="!recorder.status.isRecording && recorder.audioModel && !recorder.chatting" class="wave">
                     <ng-audio-recorder-wave-view wave-color="blue" bar-color="red"></ng-audio-recorder-wave-view>
                 </div>
             </div>
